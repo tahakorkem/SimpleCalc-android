@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.tahakorkem.simplecalc.calculator.Calculator.Operators"/>
+        <variable
+            name="viewModel"
+            type="com.tahakorkem.simplecalc.MainViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".MainActivity">
+
+        <EditText
+            android:id="@+id/input"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:gravity="top|end"
+            android:paddingHorizontal="16dp"
+            android:text='@{viewModel.input, default = "2342+3243"}'
+            android:textAlignment="textEnd"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="16dp"
+            android:text='@{viewModel.result, default = "234"}'
+            android:textAlignment="textEnd"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textColor="?colorControlNormal"
+            android:textIsSelectable="true" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            android:layout_weight="5"
+            android:columnCount="4"
+            android:useDefaultMargins="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_clear"
+                style="@style/KeyButton.Action"
+                android:onClick="@{() -> viewModel.clear()}"
+                android:text="@string/calculator_button_clear" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_delete"
+                style="@style/KeyButton.Action"
+                android:onClick="@{() -> viewModel.delete()}"
+                android:text="@string/calculator_button_delete" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_exponentiate"
+                style="@style/KeyButton.Operator"
+                android:onClick="@{() -> viewModel.insertOperator(Operators.EXPONENTIATE)}"
+                android:text="@string/calculator_button_exponentiate" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_divide"
+                style="@style/KeyButton.Operator"
+                android:onClick="@{() -> viewModel.insertOperator(Operators.DIVIDE)}"
+                android:text="@string/calculator_button_divide" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button7"
+                style="@style/KeyButton.Digit"
+                android:onClick="@{() -> viewModel.insertIntoInput('7')}"
+                android:text="@string/calculator_button_7" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button8"
+                style="@style/KeyButton.Digit"
+                android:onClick="@{() -> viewModel.insertIntoInput('8')}"
+                android:text="@string/calculator_button_8" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button9"
+                style="@style/KeyButton.Digit"
+                android:onClick="@{() -> viewModel.insertIntoInput('9')}"
+                android:text="@string/calculator_button_9" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_multiply"
+                style="@style/KeyButton.Operator"
+                android:onClick="@{() -> viewModel.insertOperator(Operators.MULTIPLY)}"
+                android:text="@string/calculator_button_multiply" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button4"
+                style="@style/KeyButton.Digit"
+                android:onClick="@{() -> viewModel.insertIntoInput('4')}"
+                android:text="@string/calculator_button_4" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button5"
+                style="@style/KeyButton.Digit"
+                android:onClick="@{() -> viewModel.insertIntoInput('5')}"
+                android:text="@string/calculator_button_5" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button6"
+                style="@style/KeyButton.Digit"
+                android:onClick="@{() -> viewModel.insertIntoInput('6')}"
+                android:text="@string/calculator_button_6" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_subtract"
+                style="@style/KeyButton.Operator"
+                android:onClick="@{() -> viewModel.insertOperator(Operators.SUBTRACT)}"
+                android:text="@string/calculator_button_subtract" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button1"
+                style="@style/KeyButton.Digit"
+                android:onClick="@{() -> viewModel.insertIntoInput('1')}"
+                android:text="@string/calculator_button_1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button2"
+                style="@style/KeyButton.Digit"
+                android:onClick="@{() -> viewModel.insertIntoInput('2')}"
+                android:text="@string/calculator_button_2" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button3"
+                style="@style/KeyButton.Digit"
+                android:onClick="@{() -> viewModel.insertIntoInput('3')}"
+                android:text="@string/calculator_button_3" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_add"
+                style="@style/KeyButton.Operator"
+                android:onClick="@{() -> viewModel.insertOperator(Operators.ADD)}"
+                android:text="@string/calculator_button_add" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button0"
+                style="@style/KeyButton.Digit"
+                android:layout_columnSpan="2"
+                android:onClick="@{() -> viewModel.insertIntoInput('0')}"
+                android:text="@string/calculator_button_0" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_comma"
+                style="@style/KeyButton.Digit"
+                android:onClick="@{() -> viewModel.insertComma()}"
+                android:text="@string/calculator_button_comma" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_equals"
+                style="@style/KeyButton.Operator"
+                android:onClick="@{() -> viewModel.takeResult()}"
+                android:text="@string/calculator_button_equals" />
+
+        </GridLayout>
+
+    </LinearLayout>
+</layout>
